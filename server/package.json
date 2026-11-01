@@ -1,0 +1,31 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "seed": "node scripts/seed.js",
+    "test:unit": "node test_unit.js",
+    "test:e2e": "node test_e2e_live.js",
+    "test:destinations": "node test_destinations_api.js",
+    "test:admin": "node test_admin_suite.js",
+    "test:itinerary": "node test_itinerary_suite.js",
+    "admin:bootstrap": "node scripts/bootstrapAdmin.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^8.7.1",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.12.1",
+    "morgan": "^1.10.0",
+    "multer": "^2.4.0"
+  }
+}

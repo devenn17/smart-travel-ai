@@ -1,0 +1,23 @@
+{
+  "name": "smart-travel-planner",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SmartTravel - Premium 2026 AI-Powered Smart Travel Planner",
+  "scripts": {
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"cyan,magenta\" \"npm run server\" \"npm run client\"",
+    "dev:client": "npm --prefix client run dev",
+    "dev:server": "npm --prefix server run dev",
+    "client": "npm --prefix client run dev",
+    "server": "npm --prefix server run dev",
+    "install:all": "npm install && npm --prefix client install && npm --prefix server install",
+    "build:client": "npm --prefix client run build",
+    "test:server": "npm --prefix server run test:e2e",
+    "seed:destinations": "npm --prefix server run seed",
+    "test:destinations": "npm --prefix server run test:destinations",
+    "test:admin": "npm --prefix server run test:admin",
+    "admin:bootstrap": "npm --prefix server run admin:bootstrap"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

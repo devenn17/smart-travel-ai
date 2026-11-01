@@ -1,0 +1,148 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+:root {
+  --color-ink: #101A24;
+  --color-forest: #183D35;
+  --color-forest-dark: #0E2922;
+  --color-ivory: #F7F3EB;
+  --color-ivory-light: #FCFAF5;
+  --color-parchment: #EDE3D1;
+  --color-parchment-light: #F5EFE3;
+  --color-white: #FFFFFF;
+  --color-sage: #A8B8A6;
+  --color-gold: #B99A64;
+  --color-gold-light: #D4BE92;
+  --color-gold-foil: #E8D5AC;
+  --color-charcoal: #4D565C;
+  --color-border: #DED8CD;
+  --color-border-parchment: #D6C8B2;
+  --color-border-dark: #243A34;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-serif-display {
+    font-family: 'DM Serif Display', 'Playfair Display', Georgia, serif;
+    letter-spacing: -0.015em;
+  }
+}
+
+/* Custom editorial focus ring */
+:focus-visible {
+  outline: 2px solid #B99A64;
+  outline-offset: 3px;
+}
+
+/* Subtle image zoom transition */
+.img-editorial {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+}
+
+.group:hover .img-editorial {
+  transform: scale(1.04);
+}
+
+/* Cartographic grid line overlay */
+.bg-cartography {
+  background-image: 
+    linear-gradient(to right, rgba(185, 154, 100, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(185, 154, 100, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-cartography-dark {
+  background-image: 
+    linear-gradient(to right, rgba(232, 213, 172, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(232, 213, 172, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F7F3EB;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #DED8CD;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B99A64;
+}
+
+/* Motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Cinematic Video Backgrounds & Overlay Treatments */
+.cinematic-video {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+@keyframes ambient-drift {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(1deg);
+  }
+}
+
+@keyframes compass-pulse {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: rotate(180deg) scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes gold-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-ambient-drift {
+  animation: ambient-drift 8s ease-in-out infinite;
+}
+
+.animate-compass-slow {
+  animation: compass-pulse 24s linear infinite;
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #E8D5AC 0%, #B99A64 50%, #D4BE92 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
